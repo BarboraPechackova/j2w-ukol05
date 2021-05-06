@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="cs" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Potvrzení registrace</title>
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/style.css"/>
+</head>
+
+<body>
+<div class="container">
+    <div class="kosik">
+        <h1>Potvrzení</h1>
+        <div> <em> Údaje </em>  </div>
+
+            <div> Jméno: <span th:text="${jmeno}"> </span>  </div>
+            <div> Příjmení: <span th:text="${prijmeni}"> </span> </div>
+            <div> Datum narození: <span th:text="${narozeni}"> </span> </div>
+
+            <div> <span th:unless="${#strings.isEmpty(email)}"> Email na rodiče: <span th:text="${email}"> </span> </span> </div>
+            <div> <span th:unless="${#strings.isEmpty(telefon)}"> Telefon na rodiče: <span th:text="${email}"> </span> </span> </div>
+
+
+    </div>
+</div>
+
+
+</body>
+</html>

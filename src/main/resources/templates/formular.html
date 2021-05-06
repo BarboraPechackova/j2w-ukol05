@@ -5,8 +5,90 @@
     <title>Registrace na letní dětský tábor</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="/images/favicon.png">
+    <link rel="stylesheet" href="/css/style.css"/>
 </head>
+
 <body>
-    TODO
+<div class="container">
+    <form class="kosik" th:action="@{/}" method="post">
+        <h1>Registrace na dětský tábor</h1>
+
+
+        <label for="jmeno" class="radek">Křestní jméno:</label>
+        <input id="jmeno" type="text" th:field="${form.jmeno}" required/>
+        <div class="error" th:if="${#fields.hasErrors('form.jmeno')}" th:errors="${form.jmeno}"></div>
+
+        <label for="prijmeni" class="radek">Příjmení:</label>
+        <input id="prijmeni" type="text" th:field="${form.prijmeni}" required/>
+        <div class="error" th:if="${#fields.hasErrors('form.prijmeni')}" th:errors="${form.prijmeni}"></div>
+
+        <label for="narozeni" class="radek">Datum narození:</label>
+        <input id="narozeni" type="date" th:field="${form.narozeni}" required/>
+        <div class="error" th:if="${#fields.hasErrors('form.narozeni')}" th:errors="${form.narozeni}"></div>
+
+        <label class="radek">Vyber Pohlaví:</label>
+        <div class="skupina">
+            <div>
+                <input id="pohlavi1"  type="radio" th:field="${form.pohlavi}" value="CHLAPEC"/>
+                <label for="pohlavi1" >Chlapec</label>
+            </div>
+            <div>
+                <input id="pohlavi2" type="radio" th:field="${form.pohlavi}" value="DIVKA"/>
+                <label for="pohlavi2" >Dívka</label>
+            </div>
+            <div>
+                <input id="pohlavi3" type="radio" th:field="${form.pohlavi}" value="JINE"/>
+                <label for="pohlavi3" >Jiné</label>
+            </div>
+        </div>
+
+        <div class="radek">Vyber sporty:</div>
+        <div class="skupina">
+            <div>
+                <input type="checkbox" th:field="${form.sport}" value="PLAVANI"/>
+                <label th:for="${#ids.prev('sport')}">Plaváni</label>
+            </div>
+            <div>
+                <input type="checkbox" th:field="${form.sport}" value="FOTBAL"/>
+                <label th:for="${#ids.prev('sport')}">Fotbal</label>
+            </div>
+            <div>
+                <input type="checkbox" th:field="${form.sport}" value="BASKETBAL"/>
+                <label th:for="${#ids.prev('sport')}">Basketbal</label>
+            </div>
+            <div>
+                <input type="checkbox" th:field="${form.sport}" value="TENIS"/>
+                <label th:for="${#ids.prev('sport')}">Tenis</label>
+            </div>
+            <div>
+                <input type="checkbox" th:field="${form.sport}" value="HAZENA"/>
+                <label th:for="${#ids.prev('sport')}">Házená</label>
+            </div>
+            <div class="error" th:if="${#fields.hasErrors('form.sport')}" th:errors="${form.sport}"></div>
+        </div>
+
+            <label for="turnus" class="radek">Vyber turnus:</label>
+            <select id="turnus" name="zbozi" th:field="${form.turnus}" required>
+                <option value=""></option>
+                <option value="1">5. až 11. července</option>
+                <option value="2">12. až 18. července</option>
+                <option value="3">19. až 25. července</option>
+            </select>
+            <div class="error" th:if="${#fields.hasErrors('form.turnus')}" th:errors="${form.turnus}"></div>
+
+            <label for="email" class="radek">E-mail na rodiče:</label>
+            <input id="email" type="email" th:field="${form.email}"/>
+            <div class="error" th:if="${#fields.hasErrors('form.email')}" th:errors="${form.email}"></div>
+
+        <label for="vek" class="radek">Telefon na rodiče:</label>
+        <input id="vek" type="text" th:field="${form.telefon}"/>
+        <div class="error" th:if="${#fields.hasErrors('form.telefon')}" th:errors="${form.telefon}"></div>
+
+        <div class="radek controls">
+            <button type="submit">Objednat</button>
+        </div>
+
+    </form>
+</div>
 </body>
 </html>

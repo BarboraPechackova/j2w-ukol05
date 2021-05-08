@@ -41,6 +41,7 @@
                 <label for="pohlavi3" >Jiné</label>
             </div>
         </div>
+        <div class="error" th:if="${#fields.hasErrors('form.pohlavi')}" th:errors="${form.pohlavi}"></div>
 
         <div class="radek">Vyber sporty:</div>
         <div class="skupina">
@@ -64,8 +65,8 @@
                 <input type="checkbox" th:field="${form.sport}" value="HAZENA"/>
                 <label th:for="${#ids.prev('sport')}">Házená</label>
             </div>
-            <div class="error" th:if="${#fields.hasErrors('form.sport')}" th:errors="${form.sport}"></div>
         </div>
+        <div class="error" th:if="${#fields.hasErrors('form.sport')}" th:errors="${form.sport}"></div>
 
             <label for="turnus" class="radek">Vyber turnus:</label>
             <select id="turnus" name="zbozi" th:field="${form.turnus}" required>

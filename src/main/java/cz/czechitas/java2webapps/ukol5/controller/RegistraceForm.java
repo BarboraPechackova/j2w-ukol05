@@ -2,6 +2,7 @@ package cz.czechitas.java2webapps.ukol5.controller;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
@@ -24,11 +25,12 @@ private String jmeno;
     @NotBlank
 private String prijmeni;
 
+
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
 private LocalDate narozeni;
 
     @NotNull
-private EnumSet<Pohlavi> pohlavi;
+private Pohlavi pohlavi;
 
     @NotNull
 private EnumSet<Sport> sport;
@@ -36,6 +38,7 @@ private EnumSet<Sport> sport;
     @NotNull
 private String turnus;
 
+    @Email
 private String email;
 private String telefon;
 
@@ -63,11 +66,11 @@ private String telefon;
         this.narozeni = narozeni;
     }
 
-    public EnumSet<Pohlavi> getPohlavi() {
+    public Pohlavi getPohlavi() {
         return pohlavi;
     }
 
-    public void setPohlavi(EnumSet<Pohlavi> pohlavi) {
+    public void setPohlavi(Pohlavi pohlavi) {
         this.pohlavi = pohlavi;
     }
 
